@@ -64,6 +64,6 @@ jobs:
           context: 4/alpine/
           file: 4/alpine/Dockerfile
           platforms: linux/amd64,linux/arm64
-          push: true //4.34.0-alpine, 4.34-alpine, 4-alpine, alpine
+          push: true
           tags: |
             ${{ github.repository }}:4.34.0-alpine, ${{ github.repository }}:4.34-alpine, ${{ github.repository }}:4-alpine, ${{ github.repository }}:alpine
