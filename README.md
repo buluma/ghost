@@ -14,10 +14,13 @@ WARNING:
 
 -->
 
+[![GitHub CI](https://github.com/buluma/ghost/actions/workflows/ci.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/ci.yml)
+[![ghost-4.34.0-alpine](https://github.com/buluma/ghost/actions/workflows/build-4-alpine.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/build-4-alpine.yml)
+
 # Quick reference
 
 -	**Maintained by**:  
-	[the Docker Community](https://github.com/docker-library/ghost)
+	[Michael Buluma](https://github.com/buluma/ghost)
 
 -	**Where to get help**:  
 	[the Docker Community Forums](https://forums.docker.com/), [the Docker Community Slack](https://dockr.ly/slack), or [Stack Overflow](https://stackoverflow.com/search?tab=newest&q=docker)
@@ -61,7 +64,7 @@ Ghost is a free and open source blogging platform written in JavaScript and dist
 This will start a Ghost instance listening on the default Ghost port of 2368.
 
 ```console
-$ docker run -d --name some-ghost ghost
+$ docker run -d --name some-ghost buluma/ghost
 ```
 
 ## Custom port
@@ -69,7 +72,7 @@ $ docker run -d --name some-ghost ghost
 If you'd like to be able to access the instance from the host without the container's IP, standard port mappings can be used:
 
 ```console
-$ docker run -d --name some-ghost -e url=http://localhost:3001 -p 3001:2368 ghost
+$ docker run -d --name some-ghost -e url=http://localhost:3001 -p 3001:2368 buluma/ghost
 ```
 
 If all goes well, you'll be able to access your new site on `http://localhost:3001` and `http://localhost:3001/ghost` to access Ghost Admin (or `http://host-ip:3001` and `http://host-ip:3001/ghost`, respectively).
@@ -85,7 +88,7 @@ For upgrading your Ghost container you will want to mount your data to the appro
 Mount your existing content. In this example we also use the Alpine base image.
 
 ```console
-$ docker run -d --name some-ghost -p 3001:2368 -v /path/to/ghost/blog:/var/lib/ghost/content ghost:alpine
+$ docker run -d --name some-ghost -p 3001:2368 -v /path/to/ghost/blog:/var/lib/ghost/content buluma/ghost:alpine
 ```
 
 ### Docker Volume
@@ -93,7 +96,7 @@ $ docker run -d --name some-ghost -p 3001:2368 -v /path/to/ghost/blog:/var/lib/g
 Alternatively you can use a named [docker volume](https://docs.docker.com/storage/volumes/) instead of a direct host path for `/var/lib/ghost/content`:
 
 ```console
-$ docker run -d --name some-ghost -v some-ghost-data:/var/lib/ghost/content ghost
+$ docker run -d --name some-ghost -v some-ghost-data:/var/lib/ghost/content buluma/ghost
 ```
 
 ### SQLite Database
@@ -105,7 +108,7 @@ This Docker image for Ghost uses SQLite. There is nothing special to configure.
 All Ghost configuration parameters (such as `url`) can be specified via environment variables. See [the Ghost documentation](https://ghost.org/docs/concepts/config/#running-ghost-with-config-env-variables) for details about what configuration is allowed and how to convert a nested configuration key into the appropriate environment variable name:
 
 ```console
-$ docker run -d --name some-ghost -e url=http://some-ghost.example.com ghost
+$ docker run -d --name some-ghost -e url=http://some-ghost.example.com buluma/ghost
 ```
 
 (There are further configuration examples in the `stack.yml` listed below.)
@@ -161,17 +164,17 @@ services:
 
 [![Try in PWD](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/docker-library/docs/cd439efd00ac238cdd9dcbb58c2e91e7d46a1ffa/ghost/stack.yml)
 
-Run `docker stack deploy -c stack.yml ghost` (or `docker-compose -f stack.yml up`), wait for it to initialize completely, and visit `http://swarm-ip:8080`, `http://localhost:8080`, or `http://host-ip:8080` (as appropriate).
+Run `docker stack deploy -c stack.yml buluma/ghost` (or `docker-compose -f stack.yml up`), wait for it to initialize completely, and visit `http://swarm-ip:8080`, `http://localhost:8080`, or `http://host-ip:8080` (as appropriate).
 
 # Image Variants
 
-The `ghost` images come in many flavors, each designed for a specific use case.
+The `buluma/ghost` images come in many flavors, each designed for a specific use case.
 
-## `ghost:<version>`
+## `buluma/ghost:<version>`
 
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
 
-## `ghost:<version>-alpine`
+## `buluma/ghost:<version>-alpine`
 
 This image is based on the popular [Alpine Linux project](https://alpinelinux.org), available in [the `alpine` official image](https://hub.docker.com/_/alpine). Alpine Linux is much smaller than most distribution base images (~5MB), and thus leads to much slimmer images in general.
 
