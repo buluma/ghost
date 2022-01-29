@@ -16,7 +16,9 @@ WARNING:
 
 [![GitHub CI](https://github.com/buluma/ghost/actions/workflows/ci.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/ci.yml)
 [![ghost-3.42.9-alpine](https://github.com/buluma/ghost/actions/workflows/build-3-alpine.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/build-3-alpine.yml)
+[![ghost-3.42.9-debian](https://github.com/buluma/ghost/actions/workflows/build-3.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/build-3.yml)
 [![ghost-4.34.0-alpine](https://github.com/buluma/ghost/actions/workflows/build-4-alpine.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/build-4-alpine.yml)
+[![ghost-4.34.0-debian](https://github.com/buluma/ghost/actions/workflows/build-4.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/build-4.yml)
 
 # Quick reference
 
@@ -129,7 +131,7 @@ While the Docker images do have Ghost-CLI available and do use some of its comma
 
 ## ... via [`docker stack deploy`](https://docs.docker.com/engine/reference/commandline/stack_deploy/) or [`docker-compose`](https://github.com/docker/compose)
 
-Example `stack.yml` for `ghost`:
+Example `stack.yml` for `buluma/ghost`:
 
 ```yaml
 # by default, the Ghost image will use SQLite (and thus requires no separate database container)
@@ -140,7 +142,7 @@ version: '3.1'
 services:
 
   ghost:
-    image: ghost:4-alpine
+    image: buluma/ghost:4-alpine
     restart: always
     ports:
       - 8080:2368

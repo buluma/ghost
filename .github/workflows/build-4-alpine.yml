@@ -8,7 +8,7 @@ on:
       - '4/alpine/**'
       - '.github/workflows/build-4-alpine.yml'
   schedule:
-    - cron: '0 2,* * * *'
+    - cron: '30 4,13 * * *'
   workflow_dispatch:
 
 jobs:
