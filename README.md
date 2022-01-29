@@ -15,6 +15,7 @@ WARNING:
 -->
 
 [![GitHub CI](https://github.com/buluma/ghost/actions/workflows/ci.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/ci.yml)
+[![ghost-3.42.9-alpine](https://github.com/buluma/ghost/actions/workflows/build-3-alpine.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/build-3-alpine.yml)
 [![ghost-4.34.0-alpine](https://github.com/buluma/ghost/actions/workflows/build-4-alpine.yml/badge.svg)](https://github.com/buluma/ghost/actions/workflows/build-4-alpine.yml)
 
 # Quick reference

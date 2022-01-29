@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     paths:
-      - '3/**'
+      - '3/alpine/**'
       - '.github/workflows/build-3-alpine.yml'
   schedule:
     - cron: '0 2,* * * *'
