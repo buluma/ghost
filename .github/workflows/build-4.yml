@@ -1,11 +1,11 @@
 ---
-name: ghost-4.34.0
+name: ghost-4.34.0-debian
 
 on:
   pull_request:
   push:
     paths:
-      - '4/**'
+      - '4/debian/**'
       - '.github/workflows/build-4.yml'
   schedule:
     - cron: '0 2,* * * *'
@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Test building image.
-        run: cd 4 && docker build -t docker-ghost-alpine-4.34.0 .
+        run: cd 4 && cd debian && docker build -t docker-ghost-alpine-4.34.0 .
 
       - name: Run the built image.
         # run: docker run --name test-container -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-alpine-4
@@ -58,8 +58,8 @@ jobs:
       - name: Build and push image.
         uses: docker/build-push-action@v2
         with:
-          context: 4/
-          file: 4/Dockerfile
+          context: 4/debian/
+          file: 4/debian/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
